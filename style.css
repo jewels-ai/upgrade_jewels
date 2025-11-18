@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Poppins:wght@300;500;700&display=swap');
+
+:root{
+  --bg:#06060a;
+  --panel:#11051b;
+  --accent:#d1a11a;
+  --muted:rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#app{height:100%;background:linear-gradient(180deg,var(--bg),#08080b);font-family:'Poppins',sans-serif;color:#fff}
+
+.topbar{position:fixed;left:16px;right:16px;top:12px;display:flex;align-items:center;justify-content:space-between;z-index:10}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:var(--muted);object-fit:cover}
+.brand-text{font-family:'Cinzel',serif;font-size:20px;color:var(--accent)}
+
+.top-actions{display:flex;gap:10px;align-items:center}
+.icon-btn{background:var(--glass);border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;cursor:pointer}
+.primary-btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#06060a;cursor:pointer;font-weight:700}
+
+.stage{position:relative;width:100%;height:100vh;overflow:hidden;display:block}
+video,canvas{position:absolute;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:1}
+#overlay{z-index:2;pointer-events:none}
+
+.loader{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:12;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.06));padding:18px;border-radius:12px;display:flex;align-items:center;gap:12px;backdrop-filter:blur(6px)}
+.loader .shimmer{width:48px;height:48px;border-radius:8px;background:linear-gradient(90deg,#fff2,#fff2);opacity:0.2}
+.loader-text{font-size:14px;color:rgba(255,255,255,0.9)}
+
+.hidden{display:none}
+
+.ui.top-right{position:fixed;right:20px;top:86px;z-index:8}
+.circle-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--glass);border:1px solid rgba(255,255,255,0.06)}
+
+.controls{position:fixed;left:16px;right:16px;bottom:18px;z-index:9;display:flex;flex-direction:column;gap:12px;align-items:center}
+.mode{display:flex;gap:10px;background:rgba(0,0,0,0.45);padding:10px;border-radius:12px;backdrop-filter:blur(6px)}
+.mode-btn{background:transparent;border:none;color:var(--accent);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:700}
+
+.subcat{display:flex;gap:10px;background:rgba(0,0,0,0.45);padding:8px;border-radius:12px}
+.sub-btn{background:var(--accent);border:none;padding:8px 12px;border-radius:8px;color:#06060a;font-weight:700;cursor:pointer}
+
+.options{display:flex;gap:12px;align-items:center;overflow-x:auto;padding:10px 12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.06));max-width:100%}
+.options button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px;border-radius:10px;cursor:pointer;transition:transform .12s ease}
+.options button img{width:68px;height:68px;border-radius:10px;object-fit:cover;display:block}
+.options button:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+
+.footer{position:fixed;left:16px;bottom:8px;z-index:9;color:rgba(255,255,255,0.4);font-size:12px}
+
+/* small screens adjustments */
+@media (max-width:600px){
+  .brand-text{font-size:16px}
+  .options button img{width:56px;height:56px}
+  .primary-btn{padding:8px 10px}
+}

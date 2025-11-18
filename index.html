@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TryMyGold — Premium AR Try-On</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <img src="logo.png" alt="Logo" class="logo"/>
+        <div class="brand-text">TryMyGold</div>
+      </div>
+
+      <div class="top-actions">
+        <button id="flipBtn" class="icon-btn" title="Flip Camera">Flip</button>
+        <button id="captureBtn" class="primary-btn">Capture</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <video id="webcam" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+
+      <div id="loader" class="loader hidden">
+        <div class="shimmer"></div>
+        <div class="loader-text">Loading assets…</div>
+      </div>
+
+      <div class="ui top-right">
+        <a id="location-btn" href="#" target="_blank" rel="noopener noreferrer" class="circle-btn" title="Location">
+          📍
+        </a>
+      </div>
+
+      <div id="controls" class="controls">
+        <div id="jewelry-mode" class="mode">
+          <button data-cat="earrings" class="mode-btn">EARRINGS</button>
+          <button data-cat="necklaces" class="mode-btn">CHAINS</button>
+        </div>
+
+        <div id="subcategory-buttons" class="subcat hidden">
+          <button data-sub="gold" class="sub-btn">Gold</button>
+          <button data-sub="diamond" class="sub-btn">Diamond</button>
+        </div>
+
+        <div id="jewelry-options" class="options hidden" aria-live="polite"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>© TryMyGold — Demo build</small>
+    </footer>
+  </div>
+
+  <!-- Mediapipe FaceMesh + Camera Utils -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
